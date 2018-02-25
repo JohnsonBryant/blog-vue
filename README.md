@@ -2,7 +2,6 @@
 
 > blog demo
 
-
 ## Build Setup
 
 ``` bash

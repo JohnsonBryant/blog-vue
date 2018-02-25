@@ -6,11 +6,12 @@
       <span class="cate"><span v-for="cate in blog.categories" :key="cate">{{ cate }}</span></span>
     </div>
     <article>{{blog.content}}</article>
+    <button @click.prevent="deleteBlog">删除</button>
   </div>
 </template>
 
 <script>
-import axios from "axios";
+import axios from "axios"
 export default {
   name: "single-blog",
   data() {
@@ -18,6 +19,11 @@ export default {
       id: this.$route.params.id,
       blog: {}
     };
+  },
+  methods: {
+    deleteBlog: function() {
+      axios.delete("https://wd6017368148uwsznl.wilddogio.com/blog/" + this.id)
+    }
   },
   created() {
     // this.$http.get('https://wd6017368148uwsznl.wilddogio.com/blog/' + this.id + '.json').

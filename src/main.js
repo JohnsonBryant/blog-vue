@@ -1,17 +1,22 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
+import App from './App'
 import axios from 'axios'
 import VueRouter from 'vue-router'
-import App from './App'
 import Routes from './routes'
+
+Vue.config.productionTip = false;
 
 //axios 全局配置
 axios.defaults.baseURL = 'https://wd6017368148uwsznl.wilddogio.com';
-
-Vue.config.productionTip = false;
+//创建路由
 Vue.use(VueRouter)
-
+const router = new VueRouter({
+  base: '/blog-vue/dist/',
+  routes: Routes,
+  mode:'history'
+})
 
 //自定义全局指令
 // Vue.directive('rainbow',{
@@ -34,7 +39,6 @@ Vue.directive('theme',{
     // }
   }
 });
-
 //自定义全局过滤器
 // Vue.filter('to-uppercase',function(value){
 //   return value.toUpperCase();
@@ -43,11 +47,7 @@ Vue.directive('theme',{
 //   return value.slice(0,100) + ' ......';
 // })
 
-//创建路由
-const router = new VueRouter({
-  routes: Routes,
-  mode:'history'
-})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
