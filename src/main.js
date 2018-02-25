@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import axios from 'axios'
 import VueRouter from 'vue-router'
-import Routes from './routes'
+import routes from './routes'
 
 Vue.config.productionTip = false;
 
@@ -14,7 +14,7 @@ axios.defaults.baseURL = 'https://wd6017368148uwsznl.wilddogio.com';
 Vue.use(VueRouter)
 const router = new VueRouter({
   base: '/blog-vue/dist/',
-  routes: Routes,
+  routes: routes,
   mode:'history'
 })
 
